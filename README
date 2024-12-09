@@ -1,0 +1,23 @@
+These bash scripts should provide help for a headless Installation of a Raspberry PI. 
+
+With basic knowledge in writing bash scripts it's easy possible to adapt the scripts for individual purpose. As theses scripts like creat.sh use dd you should be careful. Use the scripts on your own risk.
+
+iso directory:
+Please copy your Raspberry Pi Linux iso image to the directory that you want to install. 
+
+environment directory:
+The directory is used for source scripts to store environment variables that are used by the installation scripts
+
+transfer directory:
+The transfer directory is used for all files that should be copied to the boot and root partition.
+
+create.sh:
+The most critical part is the create.sh script as it does a dd command which can destroy data on the target device. Please check to which output device you want to dump the image and enter the correct value for the script variable outputdevice in line 8. Please be careful and  check with e.g. lsblk, dmesg!
+Comment in the line for dd and parted if everything is correct
+
+hostname
+The directory transfer is used to collect all files that should be transfered. Please adapt the file hostname to the hostname the new Linux operating system should use.
+
+Wifi:
+The default Installation enables WiFi. If you don't need it or don't want to use WiFi please comment out the line ./enable_wifi.sh
+
